@@ -1,0 +1,20 @@
+Fitter Status : Successful - Fri Oct 03 22:05:56 2025
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : ZoomDigital
+Top-level Entity Name : control_unit
+Family : Cyclone V
+Device : 5CSEMA5F31C6
+Timing Models : Final
+Logic utilization (in ALMs) : 1,169 / 32,070 ( 4 % )
+Total registers : 661
+Total pins : 34 / 457 ( 7 % )
+Total virtual pins : 0
+Total block memory bits : 1,228,800 / 4,065,280 ( 30 % )
+Total RAM Blocks : 152 / 397 ( 38 % )
+Total DSP Blocks : 0 / 87 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1 / 6 ( 17 % )
+Total DLLs : 0 / 4 ( 0 % )

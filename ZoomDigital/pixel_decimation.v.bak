@@ -1,0 +1,80 @@
+// Módulo que realiza decimação de pixels
+// Lê imagem 320x240 da memória primária
+// Escreve imagem 160x120 na memória secundária (amostragem 2:1)
+module pixel_decimation (
+    input  wire clk,
+    input  wire rst,
+    input  wire start,              // Inicia o processo de decimação
+    input  wire [7:0] pixel_data,   // Pixel lido da memória primária
+    output reg  [16:0] rd_address,  // Endereço de leitura (memória primária)
+    output reg  [16:0] wr_address,  // Endereço de escrita (memória secundária)
+    output reg  [7:0] wr_data,      // Dado a ser escrito
+    output reg  wren,               // Write enable
+    output reg  done                // Sinaliza fim do processo
+);
+
+    localparam ORIG_WIDTH = 320;
+    localparam TOTAL_PIXELS = 19200; // 160x120
+
+    localparam IDLE = 2'd0;
+    localparam READ = 2'd1;
+    localparam WRITE = 2'd2;
+
+    reg [1:0] state;
+    reg [16:0] pixel_count;
+    reg [8:0] row_orig;
+    reg [8:0] col_orig;
+
+    always @(posedge clk) begin
+        if (rst) begin
+            state <= IDLE;
+            rd_address <= 17'd0;
+            wr_address <= 17'd0;
+            wr_data <= 8'd0;
+            wren <= 1'b0;
+            done <= 1'b0;
+            pixel_count <= 17'd0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    wren <= 1'b0;
+                    done <= 1'b0;
+                    pixel_count <= 17'd0;
+                    if (start) begin
+                        state <= READ;
+                    end
+                end
+
+                READ: begin
+                    // Calcula coordenadas na imagem original (amostragem 2:1)
+                    row_orig <= (pixel_count / 160) << 1;
+                    col_orig <= (pixel_count % 160) << 1;
+                    
+                    // Endereço de leitura = row_orig * 320 + col_orig
+                    rd_address <= ((pixel_count / 160) << 1) * ORIG_WIDTH + 
+                                  ((pixel_count % 160) << 1);
+                    
+                    state <= WRITE;
+                end
+
+                WRITE: begin
+                    wr_address <= pixel_count;
+                    wr_data <= pixel_data;
+                    wren <= 1'b1;
+                    
+                    if (pixel_count >= TOTAL_PIXELS - 1) begin
+                        done <= 1'b1;
+                        wren <= 1'b0;
+                        state <= IDLE;
+                    end else begin
+                        pixel_count <= pixel_count + 17'd1;
+                        state <= READ;
+                    end
+                end
+
+                default: state <= IDLE;
+            endcase
+        end
+    end
+
+endmodule
