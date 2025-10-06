@@ -82,4 +82,4 @@ O Kit de Desenvolvimento DE1-SoC apresenta uma plataforma de hardware robusta co
 
 DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
-![Aproximação](Imagens/ZoomIn.gif)
+![Aproximação](Imagens/Aproximação.gif)
