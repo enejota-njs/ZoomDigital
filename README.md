@@ -108,7 +108,50 @@ TUDO SOBRE Vizinho Mais Próximo
 
 ![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
 
-TUDO SOBRE Replicação de Pixel
+# 🖼️ Método de Zoom: Replicação de Pixel (*Nearest Neighbor*)
+
+A **Replicação de Pixel**, também conhecida como **Pixel Replication** ou **Nearest Neighbor Interpolation**, é uma das técnicas mais simples e clássicas de ampliação de imagens digitais. Apesar da sua simplicidade, é muito utilizada em contextos onde a **velocidade** é mais importante do que a **qualidade visual**.
+
+---
+
+## ⚙️ Como Funciona
+
+1.  **Princípio Básico:**
+    O objetivo é aumentar o número total de *pixels* (ou *amostras*) da imagem original.
+
+2.  **Processo Passo a Passo:**
+    * Cada *pixel* da imagem original é **replicado** (copiado) várias vezes.
+    * O número de cópias depende do **fator de zoom**
+    * O pixel mantém exatamente a **mesma cor** e **valor de intensidade**.
+
+3.  **Cálculo do Novo Tamanho:**
+
+    A nova dimensão é dada por:
+   ```math
+    Nova Dimensão = Linhas Originais x Fator de zoom, Colunas Originais x Fator de zoom
+   ```
+
+### 📌 Exemplo Prático
+
+Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova imagem terá:
+
+👉 300x300 pixels.
+
+### 🔬 Exemplo Visual
+
+| Original | Após Zoom ($n=3$) |
+| :---: | :---: |
+| 🔲 | **Blocos Maiores:** Cada pixel é ampliado n vezes, criando um efeito visual "quadrado" e mais visível. |
+
+---
+
+## 🎯 Vantagens e Desvantagens
+
+| Categoria | Detalhe |
+| :---: | :--- |
+| **🟢 Vantagem** | **Extrema Simplicidade:** Implementação direta, sem cálculos complexos nem interpolação. Ideal para aplicações em tempo real ou dispositivos com baixo poder de processamento. |
+| **🔴 Desvantagem** | **Perda de Qualidade:** A imagem resultante apresenta um aspeto **pixelizado** e **borrado** (*blurry*), especialmente visível em imagens fotográficas. |
+| **🧩 Melhor Uso** | Muito usada em jogos retrô, *pixel art*, ou visualizações rápidas onde o estilo "quadrado" é desejado. |
 
 <h3>
  Redução (Zoom Out)
@@ -155,7 +198,8 @@ DESCREVER OS TESTES E RESULTADOS COM IMAGENS QUE TIRAMOS
 DESCREVER A CONCLUSÃO
 
 <h2>
- Referências
+ Referências:
+ [Pixel Replication](https://www.tutorialspoint.com/dip/zooming_methods.htm)
 </h2>
 
 DESCREVER AS REFERÊNCIAS
