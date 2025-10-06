@@ -164,11 +164,13 @@ TUDO SOBRE Média de Blocos
 Este projeto implementa uma arquitetura completa para **processamento digital de imagens em FPGA**, com suporte a múltiplos algoritmos e exibição em **VGA**.  
 A coordenação geral é feita pelo módulo `control_unit`, que gerencia os sinais de controle, endereços e dados entre os módulos e as memórias.
 
+---
+
 ### 🔷 Visão Geral
 
 O sistema permite a execução dos seguintes algoritmos de forma independente:
 
-- 🔁 **Pixel Replication** – Zoom in por replicação de pixels.  
+- 🔁 **Pixel Replication** – Zoom in por duplicação de pixels.  
 - 🔻 **Pixel Decimation** – Redução de resolução (zoom out).  
 - ⚖️ **Block Averaging** – Suavização por média de blocos 2×2.  
 - 🔲 **Nearest Neighbor Interpolation** – Interpolação por vizinho mais próximo.
@@ -194,7 +196,7 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 ### ⚙️ Módulos de Processamento
 
 #### 🔁 Pixel Replication
-- Multiplica cada pixel para gerar uma imagem ampliada.  
+- Duplica cada pixel para gerar uma imagem ampliada.  
 - Cria novos endereços de escrita e dados replicados.  
 - Utilizado para **zoom in**.
 
@@ -213,15 +215,21 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 - Redimensiona a imagem utilizando o método do **vizinho mais próximo**.  
 - Mantém bordas nítidas e processamento rápido.
 
+---
+
 ### 📦 COPY COUNTER
 
 - Responsável pela **cópia inicial** da imagem da memória primária para a secundária.  
 - Também restaura a imagem base antes de aplicar um novo algoritmo.
 
+---
+
 ### 🔀 MUX – Multiplexadores
 
-- Selecionam quais sinais (endereços e dados) são enviados à **memória secundária**.  
+- Selecionam quais sinais (endereços, dados e enable de escrita) são enviados à **memória secundária**.  
 - Alteram dinamicamente conforme o algoritmo ativo.
+
+---
 
 ### 💾 Memórias
 
@@ -233,6 +241,8 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 - Armazena o **resultado processado**.  
 - É constantemente sobrescrita pelos módulos ativos.
 
+---
+
 ### 🖥️ Sistema VGA
 
 #### 🎛️ VGA Controller
@@ -243,6 +253,17 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 #### 💡 VGA Output / Driver
 - Converte os sinais em formato compatível com monitores VGA.  
 - Gera `hsync`, `vsync`, `blank`, `sync` e `clk`.
+
+---
+
+### ⏱️ Clocks e Sincronização
+
+- O sistema utiliza um clock base de **50 MHz**.  
+- São gerados clocks secundários para sincronização:  
+  - `25 MHz` → módulos de processamento e VGA.  
+  - `75 MHz` → escrita na memória secundária.
+
+---
 
 ### 🔄 Fluxo de Dados
 
