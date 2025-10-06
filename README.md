@@ -12,7 +12,7 @@ IMAGEM QUE REPRESENTE O PROJETO - ZOOM IN E ZOOM OUT
 
 DESCREVER O ÍNDICE AQUI
 
-# 🧩 Descrição do Projeto
+## 🧩 Descrição do Projeto
 
 O projeto tem como objetivo criar um **módulo embarcado** para **redimensionar imagens em tempo real**, rodando **inteiramente em FPGA**.  
 Ele funciona como um **co-processador gráfico** capaz de fazer **zoom (aproximação)** e **redução** direto no hardware, simulando uma interpolação visual simples.  
@@ -21,7 +21,7 @@ Todo o controle é feito pelos **botões e chaves da placa**, e a imagem process
 
 ---
 
-# ⚙️ Especificações
+## ⚙️ Especificações
 
 - **🧠 Linguagem:** Verilog  
 - **💻 Kit de desenvolvimento:** DE1-SoC  
@@ -39,7 +39,7 @@ Todo o controle é feito pelos **botões e chaves da placa**, e a imagem process
 
 ---
 
-# 🧰 Ambiente de Desenvolvimento
+## 🧰 Ambiente de Desenvolvimento
 
 O código foi desenvolvido no **Quartus Prime**, que oferece tudo o que é preciso para criar e testar projetos em FPGA — desde a **edição e compilação** até a **síntese e simulação**.  
 
@@ -101,9 +101,9 @@ DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
 TUDO SOBRE Vizinho Mais Próximo
 
-<h4>
- # 🖼️ Método de Zoom: Replicação de Pixel (Pixel Replication)
-</h4>
+
+## 🖼️ Método de Zoom: Replicação de Pixel (Pixel Replication)
+
 
 ![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
 
@@ -111,7 +111,7 @@ A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é um
 
 ---
 
-## ⚙️ Como Funciona
+### ⚙️ Como Funciona
 
 1.  **Princípio Básico:**
     O objetivo é aumentar o número total de *pixels* (ou *amostras*) da imagem original.
@@ -180,14 +180,14 @@ TUDO SOBRE Média de Blocos
 
 🔗 [Ver em alta qualidade](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&target=blank&highlight=000000&layers=1&nav=1&title=Caminho%20de%20Dados.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D16_pdd4TADHBSyZAoE4eO0e6Gq3GJ_Lt0%26export%3Ddownload)
 
-# 🧠 Arquitetura do Sistema de Processamento de Imagens FPGA
+## 🧠 Arquitetura do Sistema de Processamento de Imagens FPGA
 
 Este projeto implementa uma arquitetura completa para **processamento digital de imagens em FPGA**, com suporte a múltiplos algoritmos e exibição em **VGA**.  
 A coordenação geral é feita pelo módulo `control_unit`, que gerencia os sinais de controle, endereços e dados entre os módulos e as memórias.
 
 ---
 
-## 🔷 Visão Geral
+### 🔷 Visão Geral
 
 O sistema permite a execução dos seguintes algoritmos de forma independente:
 
@@ -200,9 +200,9 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-## 🧩 Estrutura do Sistema
+### 🧩 Estrutura do Sistema
 
-### 🕹️ CONTROL – Unidade de Controle Principal
+#### 🕹️ CONTROL – Unidade de Controle Principal
 
 - Gerencia todos os módulos de processamento.  
 - Recebe os sinais `START REPL`, `START DEC`, `START AVG` e `START NN`.  
@@ -238,14 +238,14 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-### 📦 COPY COUNTER
+#### 📦 COPY COUNTER
 
 - Responsável pela **cópia inicial** da imagem da memória primária para a secundária.  
 - Também restaura a imagem base antes de aplicar um novo algoritmo.
 
 ---
 
-### 🔀 MUX – Multiplexadores
+#### 🔀 MUX – Multiplexadores
 
 - Selecionam quais sinais (endereços e dados) são enviados à **memória secundária**.  
 - Alteram dinamicamente conforme o algoritmo ativo.
