@@ -81,7 +81,10 @@ O Kit de Desenvolvimento **DE1-SoC** apresenta uma plataforma de hardware robust
 
 ### Aproximação (Zoom in)
 
-DESCREVER A FUNÇÃO DE APROXIMAÇÃO
+<p align="justify">
+A aproximação digital, também conhecida como zoom in, é o processo de ampliação de uma imagem através do aumento do número de pixels <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[1]</a>. Este processo é fundamental em sistemas de processamento digital de imagens, especialmente em aplicações que requerem análise detalhada de regiões específicas <a href="https://en.wikipedia.org/wiki/Digital_image_processing" target="_blank">[2]</a>. Os algoritmos de aproximação implementados neste projeto focam na eficiência computacional para execução em hardware FPGA, garantindo processamento em tempo real <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[1]</a>.
+</p>
+
 
 ---
 
@@ -89,7 +92,64 @@ DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
 ![Vizinho Mais Próximo](Imagens/Vizinho%20Mais%20Próximo.gif)
 
-TUDO SOBRE Vizinho Mais Próximo
+A **Interpolação por Vizinho Mais Próximo** é o método mais simples e fundamental de ampliação de imagens digitais <a href="https://pt.wikipedia.org/wiki/Interpolação_por_vizinho_mais_próximo" target="_blank">[1]</a>. Esta técnica é amplamente utilizada em sistemas embarcados devido à sua **simplicidade computacional** e **velocidade de processamento** <a href="https://pt.wikipedia.org/wiki/Interpolação_por_vizinho_mais_próximo" target="_blank">[1]</a>.
+
+---
+
+## ⚙️ Como Funciona
+
+1.  **Princípio Básico:**
+    Para cada novo pixel na imagem ampliada, o algoritmo determina qual pixel da imagem original está mais próximo geometricamente <a href="https://kwojcicki.github.io/blog/NEAREST-NEIGHBOUR" target="_blank">[2]</a>.
+
+2.  **Processo Passo a Passo:**
+    * Calcula-se a posição correspondente na imagem original para cada pixel da nova imagem <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[4]</a>
+    * Encontra-se o pixel mais próximo através do **arredondamento das coordenadas** <a href="https://kwojcicki.github.io/blog/NEAREST-NEIGHBOUR" target="_blank">[2]</a>
+    * O valor de intensidade do pixel mais próximo é **copiado diretamente** <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a>
+
+3.  **Cálculo das Coordenadas:**
+
+    Para uma ampliação com fator de zoom **n**, as coordenadas são mapeadas por <a href="https://docs.ufpr.br/~centeno/m_pdi/pdf/jaulapdi05.pdf" target="_blank">[6]</a>:
+
+$$x_{original} = \frac{x_{novo}}{n}, \quad y_{original} = \frac{y_{novo}}{n}$$
+
+### 📌 Exemplo Prático
+
+Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 2, a nova imagem terá:
+
+👉 200x200 pixels.
+
+Para um pixel na posição (150, 120) da imagem ampliada:
+- Coordenada original: (75.0, 60.0)
+- Vizinho mais próximo: (75, 60)
+- Valor copiado: intensidade do pixel (75, 60)
+
+### 🔬 Características do Algoritmo
+
+| Aspecto | Detalhe |
+| :---: | :--- |
+| **⚡ Velocidade** | **Extremamente rápido:** Apenas operações de divisão e arredondamento <a href="https://www.giassa.net/?page_id=207" target="_blank">[7]</a> |
+| **💾 Memória** | **Baixo consumo:** Não requer armazenamento de valores intermediários <a href="https://www.giassa.net/?page_id=207" target="_blank">[7]</a> |
+| **🎯 Precisão** | **Preserva valores originais:** Nenhum pixel artificial é criado <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a> |
+
+---
+
+## 🎯 Vantagens e Desvantagens
+
+| Categoria | Detalhe |
+| :---: | :--- |
+| **🟢 Vantagem** | **Simplicidade Extrema:** Implementação direta, ideal para FPGA e sistemas de tempo real <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[4]</a>. Preserva perfeitamente os valores de pixel originais <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a>. |
+| **🟢 Vantagem** | **Eficiência:** Requer apenas operações básicas de aritmética inteira, sem multiplicações complexas ou cálculos de média <a href="https://www.giassa.net/?page_id=207" target="_blank">[7]</a>. |
+| **🔴 Desvantagem** | **Efeito Escada:** Produz bordas serrilhadas (*aliasing*) em linhas diagonais e curvas devido ao arredondamento discreto <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a>. |
+| **🔴 Desvantagem** | **Perda de Suavidade:** A imagem resultante pode parecer pixelizada, especialmente em ampliações grandes <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a>. |
+
+### 🧩 Aplicações Ideais
+
+**Perfeito para:**
+- Sistemas embarcados com recursos limitados <a href="https://dcm.ffclrp.usp.br/~murta/PIM/PIM_9_Interpol.pdf" target="_blank">[8]</a>
+- Processamento de imagens em tempo real <a href="https://dcm.ffclrp.usp.br/~murta/PIM/PIM_9_Interpol.pdf" target="_blank">[8]</a>
+- Ampliação de *pixel art* e gráficos de jogos retrô <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[4]</a>
+- Aplicações onde a **velocidade** é mais importante que a **qualidade visual** <a href="https://dcm.ffclrp.usp.br/~murta/PIM/PIM_9_Interpol.pdf" target="_blank">[8]</a>
+
 
 ---
 
@@ -314,5 +374,22 @@ DESCREVER A CONCLUSÃO
 ---
 
 ## 📚 Referências
+
+**[1]** **Digital Image Processing - Zooming Methods** - Tutorialspoint. Disponível em: <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">https://www.tutorialspoint.com/dip/zooming_methods.htm</a>
+
+**[2]** **Digital image processing** - Wikipedia. Disponível em: <a href="https://en.wikipedia.org/wiki/Digital_image_processing" target="_blank">https://en.wikipedia.org/wiki/Digital_image_processing</a>
+
+**[3]** **Interpolação por vizinho mais próximo** - Wikipedia. Disponível em: <a href="https://pt.wikipedia.org/wiki/Interpolação_por_vizinho_mais_próximo" target="_blank">https://pt.wikipedia.org/wiki/Interpolação_por_vizinho_mais_próximo</a>
+
+**[4]** **Wojcicki, K.** (2020). *Nearest Neighbour Interpolation Theory*. Disponível em: <a href="https://kwojcicki.github.io/blog/NEAREST-NEIGHBOUR" target="_blank">https://kwojcicki.github.io/blog/NEAREST-NEIGHBOUR</a>
+
+**[5]** **Digital Image Processing - Zooming Methods** - Tutorialspoint. Disponível em: <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">https://www.tutorialspoint.com/dip/zooming_methods.htm</a>
+
+**[6]** **Nearest-neighbor interpolation** - Wikipedia. Disponível em: <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation</a>
+
+**[7]** **Centeno, M.** *Processamento digital de imagens - Interpolação*. UFPR. Disponível em: <a href="https://docs.ufpr.br/~centeno/m_pdi/pdf/jaulapdi05.pdf" target="_blank">https://docs.ufpr.br/~centeno/m_pdi/pdf/jaulapdi05.pdf</a>
+
+**[8]** **Nearest Neighbour Interpolation - Image Processing** - Giassa. Disponível em: <a href="https://www.giassa.net/?page_id=207" target="_blank">https://www.giassa.net/?page_id=207</a>
+
 
 * **Conceitos de Zooming e Reamostragem:** [Tutorialspoint - Zooming Methods](https://www.tutorialspoint.com/dip/zooming_methods.htm)
