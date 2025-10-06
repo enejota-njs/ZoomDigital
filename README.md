@@ -1,10 +1,6 @@
-<h1 align="center">
-Zoom Digital: Redimensionamento de Imagens com FPGA em Verilog
-</h1>
+# Zoom Digital: Redimensionamento de Imagens com FPGA em Verilog
 
-<p>
-IMAGEM QUE REPRESENTE O PROJETO - ZOOM IN E ZOOM OUT
-</p>
+---
 
 ## 🧩 Descrição do Projeto
 
