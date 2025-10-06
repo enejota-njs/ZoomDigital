@@ -342,21 +342,31 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ## 🧪 Testes e Resultados
 
-### 🔁 Pixel Replication
+### 🔁 Imagem original
+
+![Imagem original](Imagens/Imagem%20Original.jpg)
+
+---
+
+### 🔁 Aplicação do algoritmo Pixel Replication
 
 ![GIF Pixel Replicação](Imagens/GIF%20Replicação%20de%20Pixel.gif)
 
 ---
 
-### 🔻 Pixel Decimation
+### 🔻 Aplicação do algoritmo Pixel Decimation
+
+![GIF Decimação](Imagens/GIF%20Decimação.gif)
 
 ---
 
-### ⚖️ Block Averaging
+### ⚖️ Aplicação do algoritmo Block Averaging
+
+![GIF Média de Blocos](Imagens/GIF%20Média%20de%20Blocos.gif)
 
 ---
 
-#### 🔲 Nearest Neighbor Interpolation
+#### 🔲 Aplicação do algoritmo Nearest Neighbor Interpolation
 
 ![GIF Vizinho Mais Próximo](Imagens/GIF%20Vizinho%20Mais%20Próximo.gif)
 
