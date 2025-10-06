@@ -6,12 +6,6 @@ Zoom Digital: Redimensionamento de Imagens com FPGA em Verilog
 IMAGEM QUE REPRESENTE O PROJETO - ZOOM IN E ZOOM OUT
 </p>
 
-<h2>
- Índice
-</h2>
-
-DESCREVER O ÍNDICE AQUI
-
 ## 🧩 Descrição do Projeto
 
 O projeto tem como objetivo criar um **módulo embarcado** para **redimensionar imagens em tempo real**, rodando **inteiramente em FPGA**.  
@@ -54,34 +48,30 @@ Esse ambiente também permite **configurar os pinos**, realizar **testes funcion
   - Simulação funcional e temporal  
   - Validação do projeto antes da implementação física  
 
-<h2>
- Guia de Instalação e Configuração
-</h2>
+---
+
+## Guia de Instalação e Configuração
 
 DESCREVER O GUIA DE INSTALAÇÃO E CONFIGURAÇÃO
 
-<h2>
-Kit de desenvolvimento
-</h2>
+---
+
+## Kit de desenvolvimento
 
 ![FPGA](Imagens/Imagem%20da%20FPGA.jpg)
 
-<p align="justify">
-O Kit de Desenvolvimento DE1-SoC apresenta uma plataforma de hardware robusta construída em torno do FPGA Altera System-on-Chip (SoC), que combina os mais recentes núcleos embarcados Cortex-A9 dual-core com lógica programável de ponta, oferecendo máxima flexibilidade de projeto. Os usuários podem aproveitar a grande reconfigurabilidade junto a um sistema de processador de alto desempenho e baixo consumo de energia. O SoC da Altera integra um sistema de processador hard baseado em ARM (HPS), composto por processador, periféricos e interfaces de memória, ligados de forma transparente à estrutura FPGA por meio de um interconector de alta largura de banda. A placa de desenvolvimento DE1-SoC vem equipada com memória DDR3 de alta velocidade, recursos de vídeo e áudio, conectividade Ethernet, entre outros, oferecendo diversas aplicações potenciais e inovadoras.
-</p> 
+O Kit de Desenvolvimento **DE1-SoC** apresenta uma plataforma de hardware robusta construída em torno do FPGA Altera System-on-Chip (SoC), que combina os mais recentes núcleos embarcados **Cortex-A9 dual-core** com lógica programável de ponta, oferecendo máxima flexibilidade de projeto. Os usuários podem aproveitar a grande reconfigurabilidade junto a um sistema de processador de alto desempenho e baixo consumo de energia. O SoC da Altera integra um sistema de processador hard baseado em ARM (**HPS**), composto por processador, periféricos e interfaces de memória, ligados de forma transparente à estrutura FPGA por meio de um interconector de alta largura de banda. A placa de desenvolvimento DE1-SoC vem equipada com memória **DDR3** de alta velocidade, recursos de vídeo e áudio, conectividade **Ethernet**, entre outros, oferecendo diversas aplicações potenciais e inovadoras.
 
-<h2>
- FPGA
-</h2>
+## 🛠 FPGA
 
-- **Dispositivo:** Altera Cyclone® V SE 5CSEMA5F31C6N  
-- **Dispositivo de configuração serial:** Altera EPCS128  
-- **Programação:** USB-Blaster II onboard para programação; Modo JTAG (Também suporta RISC-V JTAG)  
-- **Botões:** 4 push-buttons    
-- **Fontes de clock:** Quatro clocks de 50 MHz do gerador de clock   
-- **VGA:** DAC VGA (DACs triplos de alta velocidade de 8 bits) com conector VGA-out  
-- **Elementos lógicos programáveis:** 85K  
-- **Memória embutida:** 4.450 Kbits  
+- ⚡ **Dispositivo:** Altera Cyclone® V SE 5CSEMA5F31C6N  
+- 💾 **Dispositivo de configuração serial:** Altera EPCS128  
+- 🔌 **Programação:** USB-Blaster II onboard para programação; Modo JTAG (Também suporta RISC-V JTAG)  
+- 🔘 **Botões:** 4 push-buttons  
+- ⏱ **Fontes de clock:** Quatro clocks de 50 MHz do gerador de clock  
+- 🎨 **VGA:** DAC VGA (DACs triplos de alta velocidade de 8 bits) com conector VGA-out  
+- 🔧 **Elementos lógicos programáveis:** 85K  
+- 🧠 **Memória embutida:** 4.450 Kbits
 
 <h2>
  Algoritmos
