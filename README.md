@@ -125,9 +125,9 @@ A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é um
 3.  **Cálculo do Novo Tamanho:**
 
     A nova dimensão é dada por:
-   ```math
-    Nova Dimensão = Linhas Originais x Fator de zoom, Colunas Originais x Fator de zoom
-   ```
+
+$$\text{Nova Dimensão} = (\text{Linhas Originais} \times n, \ \text{Colunas Originais} \times n)$$
+
 
 ### 📌 Exemplo Prático
 
