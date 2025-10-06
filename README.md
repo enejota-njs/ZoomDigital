@@ -107,8 +107,6 @@ A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é um
 
 $$\text{Nova Dimensão} = (\text{Linhas Originais} \times n, \ \text{Colunas Originais} \times n)$$
 
-----
-
 #### 📌 Exemplo Prático
 
 Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova imagem terá:
@@ -166,8 +164,6 @@ TUDO SOBRE Média de Blocos
 Este projeto implementa uma arquitetura completa para **processamento digital de imagens em FPGA**, com suporte a múltiplos algoritmos e exibição em **VGA**.  
 A coordenação geral é feita pelo módulo `control_unit`, que gerencia os sinais de controle, endereços e dados entre os módulos e as memórias.
 
----
-
 ### 🔷 Visão Geral
 
 O sistema permite a execução dos seguintes algoritmos de forma independente:
@@ -217,21 +213,15 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 - Redimensiona a imagem utilizando o método do **vizinho mais próximo**.  
 - Mantém bordas nítidas e processamento rápido.
 
----
-
-#### 📦 COPY COUNTER
+### 📦 COPY COUNTER
 
 - Responsável pela **cópia inicial** da imagem da memória primária para a secundária.  
 - Também restaura a imagem base antes de aplicar um novo algoritmo.
 
----
-
-#### 🔀 MUX – Multiplexadores
+### 🔀 MUX – Multiplexadores
 
 - Selecionam quais sinais (endereços e dados) são enviados à **memória secundária**.  
 - Alteram dinamicamente conforme o algoritmo ativo.
-
----
 
 ### 💾 Memórias
 
@@ -242,8 +232,6 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 #### 📙 Secondary Memory
 - Armazena o **resultado processado**.  
 - É constantemente sobrescrita pelos módulos ativos.
-
----
 
 ### 🖥️ Sistema VGA
 
@@ -256,8 +244,6 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 - Converte os sinais em formato compatível com monitores VGA.  
 - Gera `hsync`, `vsync`, `blank`, `sync` e `clk`.
 
----
-
 ### 🔄 Fluxo de Dados
 
 1. O controle inicia a cópia da imagem base.  
@@ -265,6 +251,8 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 3. O módulo correspondente lê da **memória primária** e escreve na **memória secundária**.  
 4. O controlador VGA exibe o resultado em tempo real.  
 5. Se outro algoritmo for selecionado, o sistema restaura a imagem original antes de aplicar o novo processamento.
+
+---
 
 <h2>
  Testes e Resultados
