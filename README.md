@@ -107,6 +107,8 @@ A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é um
 
 $$\text{Nova Dimensão} = (\text{Linhas Originais} \times n, \ \text{Colunas Originais} \times n)$$
 
+----
+
 #### 📌 Exemplo Prático
 
 Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova imagem terá:
