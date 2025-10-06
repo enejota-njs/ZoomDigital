@@ -12,48 +12,47 @@ IMAGEM QUE REPRESENTE O PROJETO - ZOOM IN E ZOOM OUT
 
 DESCREVER O ÍNDICE AQUI
 
-<h2>
- Descrição do projeto
-</h2>
+# 🧩 Descrição do Projeto
 
-<p align="justify">
-O projeto consiste no desenvolvimento de um módulo embarcado para redimensionamento de imagens em sistemas de vigilância e exibição em tempo real, implementado inteiramente em FPGA. O sistema atua como um co-processador gráfico capaz de realizar operações de zoom (ampliação) e downscale (redução) diretamente no hardware, simulando uma interpolação visual básica. Todo o controle do processamento é feito por meio de chaves e botões presentes na placa, enquanto a imagem resultante é exibida em um monitor por meio da interface VGA, garantindo funcionamento autônomo e independente de processadores externos.
-</p>
+O projeto tem como objetivo criar um **módulo embarcado** para **redimensionar imagens em tempo real**, rodando **inteiramente em FPGA**.  
+Ele funciona como um **co-processador gráfico** capaz de fazer **zoom (aproximação)** e **redução** direto no hardware, simulando uma interpolação visual simples.  
 
-<h2>
-Especificações
-</h2>
+Todo o controle é feito pelos **botões e chaves da placa**, e a imagem processada aparece em um **monitor VGA**, sem depender de processadores externos — ou seja, o sistema é **totalmente autônomo**.  
 
-- **Linguagem de descrição de hardware:** Verilog
-- **Kit de desenvolvimento:** DE1-SoC
-- **Tipo de imagem:** Escala de cinza (8 bits por pixel)
-- **Operações implementadas:**
-  - **Aproximação (Zoom in):**
-    - Vizinho Mais Próximo (Nearest Neighbor Interpolation)
-    - Replicação de Pixel (Pixel Replication / Block Replication)
-  - **Redução (Zoom out):**
-    - Decimação / Amostragem (Nearest Neighbor for Zoom Out)
-    - Média de Blocos (Block Averaging / Downsampling with Averaging)
-- **Controle do sistema:** Botões da placa FPGA
-- **Saída de vídeo:** Interface VGA
-- **Compatibilidade:** Coprocessador compatível com o processador ARM (Hard Processor System HPS)
+---
 
-<h2>
-Ambiente de desenvolvimento
-</h2>
+# ⚙️ Especificações
 
-<p align="justify">
-O desenvolvimento do código em Verilog para a FPGA foi realizado utilizando o software de desenvolvimento apropriado. Este software fornece um ambiente completo para edição, compilação, simulação e síntese de projetos em FPGA, permitindo a configuração dos pinos e integração com o hardware do kit DE1-SoC. Além disso, a ferramenta oferece suporte a testes funcionais e temporais.
-</p>
+- **🧠 Linguagem:** Verilog  
+- **💻 Kit de desenvolvimento:** DE1-SoC  
+- **🎨 Tipo de imagem:** Escala de cinza (8 bits por pixel)  
+- **🔧 Operações implementadas:**
+  - **Zoom In (Aproximação):**
+    - Vizinho Mais Próximo (Nearest Neighbor)
+    - Replicação de Pixel (Pixel Replication)
+  - **Zoom Out (Redução):**
+    - Decimação / Amostragem simples (Nearest Neighbor para Zoom Out)
+    - Média de Blocos (Block Averaging)
+- **🎛️ Controle:** Botões físicos da FPGA  
+- **🖥️ Saída de vídeo:** VGA  
+- **🔗 Compatibilidade:** Funciona como **coprocessador** para o processador **ARM (HPS)**  
 
-- **Software utilizado:** Quartus Prime
-- **Versão:** 23.1
-- **Funcionalidades principais:**
-  - Edição e compilação de projetos em Verilog
-  - Síntese para FPGA
-  - Configuração de pinos
-  - Simulação funcional e temporal
-  - Validação do projeto antes da implementação física na placa DE1-SoC
+---
+
+# 🧰 Ambiente de Desenvolvimento
+
+O código foi desenvolvido no **Quartus Prime**, que oferece tudo o que é preciso para criar e testar projetos em FPGA — desde a **edição e compilação** até a **síntese e simulação**.  
+
+Esse ambiente também permite **configurar os pinos**, realizar **testes funcionais e temporais**, e validar o projeto antes da implementação na **placa DE1-SoC**.  
+
+- **🧩 Software utilizado:** Quartus Prime  
+- **📦 Versão:** 23.1  
+- **🔍 Funcionalidades principais:**
+  - Edição e compilação de projetos em Verilog  
+  - Síntese para FPGA  
+  - Configuração de pinos  
+  - Simulação funcional e temporal  
+  - Validação do projeto antes da implementação física  
 
 <h2>
  Guia de Instalação e Configuração
