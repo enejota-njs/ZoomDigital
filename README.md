@@ -1,1 +1,1 @@
-README
+# Zoom Digital: Redimensionamento de Imagens com FPGA em Verilog
