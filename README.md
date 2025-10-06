@@ -103,12 +103,10 @@ DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 TUDO SOBRE Vizinho Mais Próximo
 
 <h4>
- Replicação de Pixel (Pixel Replication / Block Replication)
+ # 🖼️ Método de Zoom: Replicação de Pixel (*Nearest Neighbor*)
 </h4>
 
 ![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
-
-# 🖼️ Método de Zoom: Replicação de Pixel (*Nearest Neighbor*)
 
 A **Replicação de Pixel**, também conhecida como **Pixel Replication** ou **Nearest Neighbor Interpolation**, é uma das técnicas mais simples e clássicas de ampliação de imagens digitais. Apesar da sua simplicidade, é muito utilizada em contextos onde a **velocidade** é mais importante do que a **qualidade visual**.
 
