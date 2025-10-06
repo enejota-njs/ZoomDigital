@@ -199,8 +199,9 @@ DESCREVER A CONCLUSÃO
  Contribuidores
 </h2>
 
-| [<img src="https://github.com/FelipeBastosz.png" width="100" height="100">](https://github.com/FelipeBastosz) | [<img src="https://github.com/limajonatas.png" width="100" height="100">](https://github.com/limajonatas) | [<img src="https://github.com/enejota-njs.png" width="100" height="100">](https://github.com/enejota-njs) |
-|:---:|:---:|
+[<img src="https://github.com/FelipeBastosz.png" width="80" height="80">](https://github.com/FelipeBastosz)   [<img src="https://github.com/limajonatas.png" width="80" height="80">](https://github.com/limajonatas)   [<img src="https://github.com/enejota-njs.png" width="80" height="80">](https://github.com/enejota-njs) 
+
+
 | [@FelipeBastosz](https://github.com/FelipeBastosz) | [@limajonatas](https://github.com/limajonatas) | [@enejota-njs](https://github.com/enejota-njs) |
 
 <h2>
