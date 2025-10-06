@@ -181,7 +181,107 @@ TUDO SOBRE Média de Blocos
 
 🔗 [Ver em alta qualidade](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&target=blank&highlight=000000&layers=1&nav=1&title=Caminho%20de%20Dados.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D16_pdd4TADHBSyZAoE4eO0e6Gq3GJ_Lt0%26export%3Ddownload)
 
-DESCREVER O CAMINHO DE DADOS
+🧠 Visão Geral do Sistema
+
+O sistema implementa quatro algoritmos de processamento de imagem — replicação, decimação, média de blocos e interpolação por vizinho mais próximo — todos controlados por um módulo principal que gerencia a comunicação entre os módulos e a exibição VGA.
+
+🔹 1. Controle Principal 
+
+Atua como unidade de controle central.
+
+Recebe sinais de início (START REPL, START DEC, START AVG, START NN) e ativa o módulo correspondente.
+
+Gera os endereços e sinais de escrita/leitura das memórias.
+
+Garante que apenas um algoritmo seja executado por vez.
+
+Controla o modo de exibição (320x240 ou 160x120) e o fluxo entre memória primária e secundária.
+
+🔹 2. Módulos de Processamento
+
+Cada módulo realiza uma operação específica sobre os pixels lidos da memória primária.
+
+📦 Pixel Replication
+
+Replica cada pixel para aumentar a resolução da imagem.
+
+Gera novos endereços e dados replicados.
+
+Útil para zoom in.
+
+🔻 Pixel Decimation
+
+Reduz a resolução descartando pixels em intervalos regulares.
+
+Ideal para “zoom out”.
+
+🔢 Block Averaging
+
+Calcula a média de blocos 2×2 pixels.
+
+Suaviza a imagem e reduz ruído.
+
+Usa dois módulos auxiliares:
+
+address_counter_avg: gera endereços de leitura.
+
+block_average: calcula a média dos quatro valores de entrada.
+
+🔲 Nearest Neighbor Interpolation
+
+Faz interpolação pelo método do vizinho mais próximo.
+
+Redimensiona a imagem mantendo bordas nítidas.
+
+🔹 3. Módulo COPY COUNTER
+
+Responsável pela cópia inicial da imagem da memória primária para a secundária.
+
+É usado também para restaurar a imagem original antes de aplicar um novo algoritmo.
+
+🔹 4. Multiplexadores (MUX)
+
+Selecionam quais sinais (endereços e dados) serão enviados à memória secundária.
+
+Mudam dinamicamente conforme o algoritmo ativo.
+
+🔹 5. Memórias
+📘 Primary Memory
+
+Armazena a imagem original.
+
+Somente leitura durante o processamento.
+
+📙 Secondary Memory
+
+Armazena o resultado processado.
+
+É constantemente sobrescrita conforme o algoritmo selecionado.
+
+🔹 6. Sistema VGA
+🧩 VGA Controller
+
+Lê os pixels da memória secundária e gera os sinais de cor (R, G, B).
+
+Controla a varredura da tela nos modos 320×240 e 160×120.
+
+🖥️ VGA Output / Driver
+
+Converte os dados em sinais compatíveis com o monitor VGA (hsync, vsync, blank, etc.).
+
+Exibe a imagem processada em tempo real.
+
+🔹 7. Fluxo de Dados
+
+O controle inicia a cópia da imagem base.
+
+Um dos algoritmos é ativado.
+
+O módulo correspondente lê da memória primária e escreve na memória secundária.
+
+O controlador VGA lê da secundária e exibe o resultado.
+
+Se um novo algoritmo for selecionado, a imagem original é restaurada antes de aplicar o novo efeito.
 
 <h2>
  Testes e Resultados
