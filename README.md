@@ -201,8 +201,6 @@ DESCREVER A CONCLUSÃO
 
 [<img src="https://github.com/FelipeBastosz.png" width="80" height="80">](https://github.com/FelipeBastosz)   [<img src="https://github.com/limajonatas.png" width="80" height="80">](https://github.com/limajonatas)   [<img src="https://github.com/enejota-njs.png" width="80" height="80">](https://github.com/enejota-njs) 
 
-<h2>
- Referências:
-</h2>
+## 📚 Referências
 
-![Pixel Replication](https://www.tutorialspoint.com/dip/zooming_methods.htm)
+* **Conceitos de Zooming e Reamostragem:** [Tutorialspoint - Zooming Methods](https://www.tutorialspoint.com/dip/zooming_methods.htm)
