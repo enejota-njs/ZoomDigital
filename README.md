@@ -53,7 +53,7 @@ O desenvolvimento do código em Verilog para a FPGA foi realizado utilizando o s
 Kit de desenvolvimento
 </h2>
 
-![FPGA](Imagens/fpga.jpg)
+![FPGA](Imagens/FPGA.jpg)
 
 <p align="justify">
 O Kit de Desenvolvimento DE1-SoC apresenta uma plataforma de hardware robusta construída em torno do FPGA Altera System-on-Chip (SoC), que combina os mais recentes núcleos embarcados Cortex-A9 dual-core com lógica programável de ponta, oferecendo máxima flexibilidade de projeto. Os usuários podem aproveitar a grande reconfigurabilidade junto a um sistema de processador de alto desempenho e baixo consumo de energia. O SoC da Altera integra um sistema de processador hard baseado em ARM (HPS), composto por processador, periféricos e interfaces de memória, ligados de forma transparente à estrutura FPGA por meio de um interconector de alta largura de banda. A placa de desenvolvimento DE1-SoC vem equipada com memória DDR3 de alta velocidade, recursos de vídeo e áudio, conectividade Ethernet, entre outros, oferecendo diversas aplicações potenciais e inovadoras.
@@ -82,4 +82,40 @@ O Kit de Desenvolvimento DE1-SoC apresenta uma plataforma de hardware robusta co
 
 DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
-![Aproximação](Imagens/Aproximação.gif)
+<h4>
+ Vizinho Mais Próximo (Nearest Neighbor Interpolation)
+</h4>
+
+![Vizinho Mais Próximo](Imagens/Vizinho%20Mais%20Próximo.gif)
+
+TUDO SOBRE Vizinho Mais Próximo
+
+<h4>
+ Replicação de Pixel (Pixel Replication / Block Replication)
+</h4>
+
+![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
+
+TUDO SOBRE Replicação de Pixel
+
+<h3>
+ Redução (Zoom Out)
+</h3>
+
+DESCREVER A FUNÇÃO DE REDUÇÃO
+
+<h3>
+ Decimação / Amostragem (Nearest Neighbor for Zoom Out)
+</h3>
+
+![Decimação](Imagens/Decimação.gif)
+
+TUDO SOBRE Decimação / Amostragem
+
+<h3>
+ Média de Blocos (Block Averaging / Downsampling with Averaging)
+</h3>
+
+![Média de Blocos](Imagens/Média%20de%20Blocos.gif)
+
+TUDO SOBRE Média de Blocos
