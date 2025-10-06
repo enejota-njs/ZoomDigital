@@ -62,6 +62,8 @@ DESCREVER O GUIA DE INSTALAÇÃO E CONFIGURAÇÃO
 
 O Kit de Desenvolvimento **DE1-SoC** apresenta uma plataforma de hardware robusta construída em torno do FPGA Altera System-on-Chip (SoC), que combina os mais recentes núcleos embarcados **Cortex-A9 dual-core** com lógica programável de ponta, oferecendo máxima flexibilidade de projeto. Os usuários podem aproveitar a grande reconfigurabilidade junto a um sistema de processador de alto desempenho e baixo consumo de energia. O SoC da Altera integra um sistema de processador hard baseado em ARM (**HPS**), composto por processador, periféricos e interfaces de memória, ligados de forma transparente à estrutura FPGA por meio de um interconector de alta largura de banda. A placa de desenvolvimento DE1-SoC vem equipada com memória **DDR3** de alta velocidade, recursos de vídeo e áudio, conectividade **Ethernet**, entre outros, oferecendo diversas aplicações potenciais e inovadoras.
 
+--- 
+
 ## 🛠 FPGA
 
 - ⚡ **Dispositivo:** Altera Cyclone® V SE 5CSEMA5F31C6N  
@@ -73,17 +75,23 @@ O Kit de Desenvolvimento **DE1-SoC** apresenta uma plataforma de hardware robust
 - 🔧 **Elementos lógicos programáveis:** 85K  
 - 🧠 **Memória embutida:** 4.450 Kbits
 
+---
+
 ## Algoritmos
 
 ### Aproximação (Zoom in)
 
 DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
+---
+
 ### Vizinho Mais Próximo (Nearest Neighbor Interpolation)
 
 ![Vizinho Mais Próximo](Imagens/Vizinho%20Mais%20Próximo.gif)
 
 TUDO SOBRE Vizinho Mais Próximo
+
+---
 
 ### 🖼️ Replicação de Pixel (Pixel Replication)
 
@@ -135,6 +143,8 @@ Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova 
 
 DESCREVER A FUNÇÃO DE REDUÇÃO
 
+---
+
 <h3>
  Decimação / Amostragem (Nearest Neighbor for Zoom Out)
 </h3>
@@ -143,6 +153,8 @@ DESCREVER A FUNÇÃO DE REDUÇÃO
 
 TUDO SOBRE Decimação / Amostragem
 
+---
+
 <h3>
  Média de Blocos (Block Averaging / Downsampling with Averaging)
 </h3>
@@ -150,6 +162,8 @@ TUDO SOBRE Decimação / Amostragem
 ![Média de Blocos](Imagens/Média%20de%20Blocos.gif)
 
 TUDO SOBRE Média de Blocos
+
+---
 
 <h2>
  Caminho de Dados
@@ -281,17 +295,23 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 DESCREVER OS TESTES E RESULTADOS COM IMAGENS QUE TIRAMOS
 
+---
+
 <h2>
  Conclusão
 </h2>
 
 DESCREVER A CONCLUSÃO
 
+---
+
 <h2>
  Contribuidores
 </h2>
 
 [<img src="https://github.com/FelipeBastosz.png" width="80" height="80">](https://github.com/FelipeBastosz)   [<img src="https://github.com/limajonatas.png" width="80" height="80">](https://github.com/limajonatas)   [<img src="https://github.com/enejota-njs.png" width="80" height="80">](https://github.com/enejota-njs) 
+
+---
 
 ## 📚 Referências
 
