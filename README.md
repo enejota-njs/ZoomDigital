@@ -204,6 +204,5 @@ DESCREVER A CONCLUSÃO
 <h2>
  Referências:
 </h2>
-![Pixel Replication](https://www.tutorialspoint.com/dip/zooming_methods.htm)
 
-DESCREVER AS REFERÊNCIAS
+![Pixel Replication](https://www.tutorialspoint.com/dip/zooming_methods.htm)
