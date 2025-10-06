@@ -73,35 +73,25 @@ O Kit de Desenvolvimento **DE1-SoC** apresenta uma plataforma de hardware robust
 - 🔧 **Elementos lógicos programáveis:** 85K  
 - 🧠 **Memória embutida:** 4.450 Kbits
 
-<h2>
- Algoritmos
-</h2>
+## Algoritmos
 
-<h3>
- Aproximação (Zoom in)
-</h3>
+### Aproximação (Zoom in)
 
 DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
-<h4>
- Vizinho Mais Próximo (Nearest Neighbor Interpolation)
-</h4>
+### Vizinho Mais Próximo (Nearest Neighbor Interpolation)
 
 ![Vizinho Mais Próximo](Imagens/Vizinho%20Mais%20Próximo.gif)
 
 TUDO SOBRE Vizinho Mais Próximo
 
-
-## 🖼️ Método de Zoom: Replicação de Pixel (Pixel Replication)
-
+### 🖼️ Replicação de Pixel (Pixel Replication)
 
 ![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
 
 A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é uma das técnicas mais simples e clássicas de ampliação de imagens digitais. Apesar da sua simplicidade, é muito utilizada em contextos onde a **velocidade** é mais importante do que a **qualidade visual**.
 
----
-
-### ⚙️ Como Funciona
+#### ⚙️ Como Funciona
 
 1.  **Princípio Básico:**
     O objetivo é aumentar o número total de *pixels* (ou *amostras*) da imagem original.
@@ -117,28 +107,27 @@ A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é um
 
 $$\text{Nova Dimensão} = (\text{Linhas Originais} \times n, \ \text{Colunas Originais} \times n)$$
 
-
-### 📌 Exemplo Prático
+#### 📌 Exemplo Prático
 
 Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova imagem terá:
 
 👉 300x300 pixels.
 
-### 🔬 Exemplo Visual
+#### 🔬 Exemplo Visual
 
 | Original | Após Zoom ($n=3$) |
 | :---: | :---: |
 | 🔲 | **Blocos Maiores:** Cada pixel é ampliado n vezes, criando um efeito visual "quadrado" e mais visível. |
 
----
-
-## 🎯 Vantagens e Desvantagens
+#### 🎯 Vantagens e Desvantagens
 
 | Categoria | Detalhe |
 | :---: | :--- |
 | **🟢 Vantagem** | **Extrema Simplicidade:** Implementação direta, sem cálculos complexos nem interpolação. Ideal para aplicações em tempo real ou dispositivos com baixo poder de processamento. |
 | **🔴 Desvantagem** | **Perda de Qualidade:** A imagem resultante apresenta um aspeto **pixelizado** e **borrado** (*blurry*), especialmente visível em imagens fotográficas. |
 | **🧩 Melhor Uso** | Muito usada em jogos retrô, *pixel art*, ou visualizações rápidas onde o estilo "quadrado" é desejado. |
+
+---
 
 <h3>
  Redução (Zoom Out)
