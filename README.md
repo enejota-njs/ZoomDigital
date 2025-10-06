@@ -66,23 +66,16 @@ O Kit de Desenvolvimento DE1-SoC apresenta uma plataforma de hardware robusta co
 - **Dispositivo:** Altera Cyclone® V SE 5CSEMA5F31C6N  
 - **Dispositivo de configuração serial:** Altera EPCS128  
 - **Programação:** USB-Blaster II onboard para programação; Modo JTAG (Também suporta RISC-V JTAG)  
-- **Memória SDRAM:** 64MB (barramento de dados de 16 bits)  
-- **Memória Flash QSPI:** Suporte a RISC-V  
-- **Botões:** 4 push-buttons  
-- **Chaves deslizantes:** 10 slide switches  
-- **LEDs de usuário:** 10 LEDs vermelhos  
-- **Displays:** Seis displays de 7 segmentos  
-- **Fontes de clock:** Quatro clocks de 50 MHz do gerador de clock  
-- **Áudio:** CODEC de áudio de qualidade CD de 24 bits com entradas line-in, line-out e microfone  
+- **Botões:** 4 push-buttons    
+- **Fontes de clock:** Quatro clocks de 50 MHz do gerador de clock   
 - **VGA:** DAC VGA (DACs triplos de alta velocidade de 8 bits) com conector VGA-out  
-- **TV:** Decodificador de TV (NTSC/PAL/SECAM) e conector TV-in  
-- **Conector PS/2:** Mouse/teclado  
-- **Infra-vermelho:** Receptor e emissor IR  
-- **UART:** UART para USB, conector USB Mini-B  
-- **Expansão:** Dois headers de 40 pinos com proteção por diodo  
-- **Conversor A/D:** Conversor A/D com interface SPI de 4 pinos com FPGA
+- **Elementos lógicos programáveis:** 85K  
+- **Memória embutida:** 4.450 Kbits  
 
+<h3>
+ FPGA
+</h3>
 
+DESCREVER A FUNÇÃO DE APROXIMAÇÃO
 
-
-
+![Aproximação](ZoomIn.gif)
