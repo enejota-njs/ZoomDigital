@@ -330,15 +330,6 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-### ⏱️ Clocks e Sincronização
-
-- O sistema utiliza um clock base de **50 MHz**.  
-- São gerados clocks secundários para sincronização:  
-  - `25 MHz` → módulos de processamento e VGA.  
-  - `75 MHz` → escrita na memória secundária.
-
----
-
 ### 🔄 Fluxo de Dados
 
 1. O controle inicia a cópia da imagem base.  
@@ -349,11 +340,25 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-<h2>
- Testes e Resultados
-</h2>
+## 🧪 Testes e Resultados
 
-DESCREVER OS TESTES E RESULTADOS COM IMAGENS QUE TIRAMOS
+### 🔁 Pixel Replication
+
+![GIF Pixel Replicação](Imagens/GIF%20Replicação%20de%20Pixel.gif)
+
+---
+
+### 🔻 Pixel Decimation
+
+---
+
+### ⚖️ Block Averaging
+
+---
+
+#### 🔲 Nearest Neighbor Interpolation
+
+![GIF Vizinho Mais Próximo](Imagens/GIF%20Vizinho%20Mais%20Próximo.gif)
 
 ---
 
