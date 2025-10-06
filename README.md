@@ -7,7 +7,13 @@ IMAGEM QUE REPRESENTE O PROJETO - ZOOM IN E ZOOM OUT
 </p>
 
 <h2>
-Descrição do projeto
+ Índice
+</h2>
+
+DESCREVER O ÍNDICE AQUI
+
+<h2>
+ Descrição do projeto
 </h2>
 
 <p align="justify">
@@ -119,3 +125,29 @@ TUDO SOBRE Decimação / Amostragem
 ![Média de Blocos](Imagens/Média%20de%20Blocos.gif)
 
 TUDO SOBRE Média de Blocos
+
+<h2>
+ Caminho de Dados
+</h2>
+
+IMAGEM DO DIAGRAMA
+
+DESCREVER O CAMINHO DE DADOS
+
+<h2>
+ Testes e Resultados
+</h2>
+
+DESCREVER OS TESTES E RESULTADOS COM IMAGENS QUE TIRAMOS
+
+<h2>
+ Conclusão
+</h2>
+
+DESCREVER A CONCLUSÃO
+
+<h2>
+ Referências
+</h2>
+
+DESCREVER AS REFERÊNCIAS
