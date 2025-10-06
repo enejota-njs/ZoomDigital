@@ -56,6 +56,12 @@ O desenvolvimento do código em Verilog para a FPGA foi realizado utilizando o s
   - Validação do projeto antes da implementação física na placa DE1-SoC
 
 <h2>
+ Guia de Instalação e Configuração
+</h2>
+
+DESCREVER O GUIA DE INSTALAÇÃO E CONFIGURAÇÃO
+
+<h2>
 Kit de desenvolvimento
 </h2>
 
