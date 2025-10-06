@@ -119,7 +119,7 @@ A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é um
 
 2.  **Processo Passo a Passo:**
     * Cada *pixel* da imagem original é **replicado** (copiado) várias vezes.
-    * O número de cópias depende do **fator de zoom**
+    * O número de cópias depende do **fator de zoom** (n)
     * O pixel mantém exatamente a **mesma cor** e **valor de intensidade**.
 
 3.  **Cálculo do Novo Tamanho:**
