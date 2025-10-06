@@ -181,107 +181,110 @@ TUDO SOBRE Média de Blocos
 
 🔗 [Ver em alta qualidade](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&target=blank&highlight=000000&layers=1&nav=1&title=Caminho%20de%20Dados.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D16_pdd4TADHBSyZAoE4eO0e6Gq3GJ_Lt0%26export%3Ddownload)
 
-🧠 Visão Geral do Sistema
+# 🧠 Arquitetura do Sistema de Processamento de Imagens FPGA
 
-O sistema implementa quatro algoritmos de processamento de imagem — replicação, decimação, média de blocos e interpolação por vizinho mais próximo — todos controlados por um módulo principal que gerencia a comunicação entre os módulos e a exibição VGA.
+Este projeto implementa uma arquitetura completa para **processamento digital de imagens em FPGA**, com suporte a múltiplos algoritmos e exibição em **VGA**.  
+A coordenação geral é feita pelo módulo `control_unit`, que gerencia os sinais de controle, endereços e dados entre os módulos e as memórias.
 
-🔹 1. Controle Principal 
+---
 
-Atua como unidade de controle central.
+## 🔷 Visão Geral
 
-Recebe sinais de início (START REPL, START DEC, START AVG, START NN) e ativa o módulo correspondente.
+O sistema permite a execução dos seguintes algoritmos de forma independente:
 
-Gera os endereços e sinais de escrita/leitura das memórias.
+- 🔁 **Pixel Replication** – Zoom in por replicação de pixels.  
+- 🔻 **Pixel Decimation** – Redução de resolução (zoom out).  
+- ⚖️ **Block Averaging** – Suavização por média de blocos 2×2.  
+- 🔲 **Nearest Neighbor Interpolation** – Interpolação por vizinho mais próximo.
 
-Garante que apenas um algoritmo seja executado por vez.
+Cada operação é iniciada por um sinal de **start** específico e processada com base nos dados da memória primária.
 
-Controla o modo de exibição (320x240 ou 160x120) e o fluxo entre memória primária e secundária.
+---
 
-🔹 2. Módulos de Processamento
+## 🧩 Estrutura do Sistema
 
-Cada módulo realiza uma operação específica sobre os pixels lidos da memória primária.
+### 🕹️ CONTROL – Unidade de Controle Principal
 
-📦 Pixel Replication
+- Gerencia todos os módulos de processamento.  
+- Recebe os sinais `START REPL`, `START DEC`, `START AVG` e `START NN`.  
+- Garante que apenas **um algoritmo** rode por vez.  
+- Controla o fluxo de dados entre **memória primária**, **memória secundária** e **VGA**.  
+- Define o **modo de exibição**:  
+  - `320x240` (imagem original)  
+  - `160x120` (imagem reduzida)
 
-Replica cada pixel para aumentar a resolução da imagem.
+---
 
-Gera novos endereços e dados replicados.
+### ⚙️ Módulos de Processamento
 
-Útil para zoom in.
+#### 🔁 Pixel Replication
+- Multiplica cada pixel para gerar uma imagem ampliada.  
+- Cria novos endereços de escrita e dados replicados.  
+- Utilizado para **zoom in**.
 
-🔻 Pixel Decimation
+#### 🔻 Pixel Decimation
+- Reduz a resolução da imagem descartando pixels em intervalos regulares.  
+- Ideal para **zoom out**.
 
-Reduz a resolução descartando pixels em intervalos regulares.
+#### ⚖️ Block Averaging
+- Calcula a média de blocos 2×2 de pixels.  
+- Reduz ruídos e suaviza transições.  
+- Usa dois módulos auxiliares:  
+  - `address_counter_avg`: gera endereços de leitura.  
+  - `block_average`: calcula a média de quatro valores.
 
-Ideal para “zoom out”.
+#### 🔲 Nearest Neighbor Interpolation
+- Redimensiona a imagem utilizando o método do **vizinho mais próximo**.  
+- Mantém bordas nítidas e processamento rápido.
 
-🔢 Block Averaging
+---
 
-Calcula a média de blocos 2×2 pixels.
+### 📦 COPY COUNTER
 
-Suaviza a imagem e reduz ruído.
+- Responsável pela **cópia inicial** da imagem da memória primária para a secundária.  
+- Também restaura a imagem base antes de aplicar um novo algoritmo.
 
-Usa dois módulos auxiliares:
+---
 
-address_counter_avg: gera endereços de leitura.
+### 🔀 MUX – Multiplexadores
 
-block_average: calcula a média dos quatro valores de entrada.
+- Selecionam quais sinais (endereços e dados) são enviados à **memória secundária**.  
+- Alteram dinamicamente conforme o algoritmo ativo.
 
-🔲 Nearest Neighbor Interpolation
+---
 
-Faz interpolação pelo método do vizinho mais próximo.
+### 💾 Memórias
 
-Redimensiona a imagem mantendo bordas nítidas.
+#### 📘 Primary Memory
+- Armazena a **imagem original**.  
+- Somente leitura durante o processamento.
 
-🔹 3. Módulo COPY COUNTER
+#### 📙 Secondary Memory
+- Armazena o **resultado processado**.  
+- É constantemente sobrescrita pelos módulos ativos.
 
-Responsável pela cópia inicial da imagem da memória primária para a secundária.
+---
 
-É usado também para restaurar a imagem original antes de aplicar um novo algoritmo.
+### 🖥️ Sistema VGA
 
-🔹 4. Multiplexadores (MUX)
+#### 🎛️ VGA Controller
+- Lê os pixels da **memória secundária**.  
+- Gera sinais de cor (`R`, `G`, `B`) e endereços de leitura.  
+- Suporta os modos 320×240 e 160×120.
 
-Selecionam quais sinais (endereços e dados) serão enviados à memória secundária.
+#### 💡 VGA Output / Driver
+- Converte os sinais em formato compatível com monitores VGA.  
+- Gera `hsync`, `vsync`, `blank`, `sync` e `clk`.
 
-Mudam dinamicamente conforme o algoritmo ativo.
+---
 
-🔹 5. Memórias
-📘 Primary Memory
+### 🔄 Fluxo de Dados
 
-Armazena a imagem original.
-
-Somente leitura durante o processamento.
-
-📙 Secondary Memory
-
-Armazena o resultado processado.
-
-É constantemente sobrescrita conforme o algoritmo selecionado.
-
-🔹 6. Sistema VGA
-🧩 VGA Controller
-
-Lê os pixels da memória secundária e gera os sinais de cor (R, G, B).
-
-Controla a varredura da tela nos modos 320×240 e 160×120.
-
-🖥️ VGA Output / Driver
-
-Converte os dados em sinais compatíveis com o monitor VGA (hsync, vsync, blank, etc.).
-
-Exibe a imagem processada em tempo real.
-
-🔹 7. Fluxo de Dados
-
-O controle inicia a cópia da imagem base.
-
-Um dos algoritmos é ativado.
-
-O módulo correspondente lê da memória primária e escreve na memória secundária.
-
-O controlador VGA lê da secundária e exibe o resultado.
-
-Se um novo algoritmo for selecionado, a imagem original é restaurada antes de aplicar o novo efeito.
+1. O controle inicia a cópia da imagem base.  
+2. Um algoritmo é ativado por um sinal de start.  
+3. O módulo correspondente lê da **memória primária** e escreve na **memória secundária**.  
+4. O controlador VGA exibe o resultado em tempo real.  
+5. Se outro algoritmo for selecionado, o sistema restaura a imagem original antes de aplicar o novo processamento.
 
 <h2>
  Testes e Resultados
