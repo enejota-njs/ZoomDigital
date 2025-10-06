@@ -136,7 +136,7 @@ TUDO SOBRE Média de Blocos
  Caminho de Dados
 </h2>
 
-IMAGEM DO DIAGRAMA
+![Caminho de Dados](Imagens/Caminho%20de%20Dados.png)
 
 DESCREVER O CAMINHO DE DADOS
 
