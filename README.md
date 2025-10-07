@@ -58,7 +58,7 @@ Esse ambiente também permite **configurar os pinos**, realizar **testes funcion
 4. Execute o instalador e siga os passos:  
    - Aceite o contrato de licença.  
    - Escolha o caminho de instalação.  
-   - Marque os pacotes que deseja instalar (Quartus, ModelSim, Programador USB-Blaster, etc.).  
+   - Marque os pacotes que deseja instalar (Quartus, ModelSim).  
 6. Finalize a instalação e abra o **Quartus Prime**.
 
 ### 2. Baixar o projeto do GitHub
@@ -127,13 +127,11 @@ A aproximação digital, também conhecida como zoom in, é o processo de amplia
 
 ### Vizinho Mais Próximo (Nearest Neighbor Interpolation)
 
-![Vizinho Mais Próximo](Imagens/Vizinho%20Mais%20Próximo.gif)
-
 A **Interpolação por Vizinho Mais Próximo** é o método mais simples e fundamental de ampliação de imagens digitais <a href="https://pt.wikipedia.org/wiki/Interpolação_por_vizinho_mais_próximo" target="_blank">[1]</a>. Esta técnica é amplamente utilizada em sistemas embarcados devido à sua **simplicidade computacional** e **velocidade de processamento** <a href="https://pt.wikipedia.org/wiki/Interpolação_por_vizinho_mais_próximo" target="_blank">[1]</a>.
 
 ---
 
-## ⚙️ Como Funciona
+#### ⚙️ Como Funciona
 
 1.  **Princípio Básico:**
     Para cada novo pixel na imagem ampliada, o algoritmo determina qual pixel da imagem original está mais próximo geometricamente <a href="https://kwojcicki.github.io/blog/NEAREST-NEIGHBOUR" target="_blank">[2]</a>.
@@ -149,13 +147,15 @@ A **Interpolação por Vizinho Mais Próximo** é o método mais simples e funda
 
 $$x_{original} = \frac{x_{novo}}{n}, \quad y_{original} = \frac{y_{novo}}{n}$$
 
-### 📌 Exemplo Prático
+#### 📌 Exemplo Prático
 
 Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 2, a nova imagem terá:
 
 👉 200x200 pixels.
 
 #### 🔬 Exemplo Visual
+
+![Vizinho Mais Próximo](Imagens/Vizinho%20Mais%20Próximo.gif)
 
 A imagem acima ilustra a aplicação do algoritmo de vizinho mais próximo. O fator de zoom está indicado no canto superior esquerdo da imagem. Cada pixel da região superior esquerda é duplicado de acordo com o fator de zoom, formando uma imagem ampliada, onde cada novo pixel assume o valor do pixel mais próximo da imagem original.
 
@@ -164,7 +164,7 @@ Para um pixel na posição (150, 120) da imagem ampliada:
 - Vizinho mais próximo: (75, 60)
 - Valor copiado: intensidade do pixel (75, 60)
 
-### 🔬 Características do Algoritmo
+#### 🔬 Características do Algoritmo
 
 | Aspecto | Detalhe |
 | :---: | :--- |
@@ -174,7 +174,7 @@ Para um pixel na posição (150, 120) da imagem ampliada:
 
 ---
 
-## 🎯 Vantagens e Desvantagens
+#### 🎯 Vantagens e Desvantagens
 
 | Categoria | Detalhe |
 | :---: | :--- |
@@ -183,7 +183,7 @@ Para um pixel na posição (150, 120) da imagem ampliada:
 | **🔴 Desvantagem** | **Efeito Escada:** Produz bordas serrilhadas (*aliasing*) em linhas diagonais e curvas devido ao arredondamento discreto <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a>. |
 | **🔴 Desvantagem** | **Perda de Suavidade:** A imagem resultante pode parecer pixelizada, especialmente em ampliações grandes <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation" target="_blank">[5]</a>. |
 
-### 🧩 Aplicações Ideais
+#### 🧩 Aplicações Ideais
 
 **Perfeito para:**
 - Sistemas embarcados com recursos limitados <a href="https://dcm.ffclrp.usp.br/~murta/PIM/PIM_9_Interpol.pdf" target="_blank">[8]</a>
@@ -194,8 +194,6 @@ Para um pixel na posição (150, 120) da imagem ampliada:
 ---
 
 ### 🖼️ Replicação de Pixel (Pixel Replication)
-
-![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
 
 A **Replicação de Pixel**, também conhecida como **Pixel Replication**, é uma das técnicas mais simples e clássicas de ampliação de imagens digitais. Apesar da sua simplicidade, é muito utilizada em contextos onde a **velocidade** é mais importante do que a **qualidade visual**.
 
@@ -223,6 +221,8 @@ Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova 
 
 #### 🔬 Exemplo Visual
 
+![Replicação de Pixel](Imagens/Replicação%20de%20Pixel.gif)
+
 A imagem acima ilustra a aplicação do algoritmo de replicação de pixels. O fator de zoom está indicado no canto superior esquerdo da imagem. Cada pixel do bloco 2x2 superior esquerdo é replicado para formar um novo bloco 2x2, resultando em uma imagem do mesmo tamanho da original, porém com o zoom aplicado.
 
 #### 🎯 Vantagens e Desvantagens
@@ -241,9 +241,7 @@ A redução digital, também conhecida como zoom out, é o processo de diminuiç
 
 ---
 
-## 🟥 Decimação / Amostragem (Nearest Neighbor for Zoom Out)
-
-![Decimação](Imagens/Decimação.gif)
+### 🟥 Decimação / Amostragem (Nearest Neighbor for Zoom Out)
 
 O **algoritmo de Decimação** é uma técnica simples de **redução de imagens**, utilizada quando o objetivo é diminuir o tamanho da imagem de forma rápida, mesmo que isso implique em perda de detalhes. É eficiente para contextos onde a **velocidade** é mais importante do que a **precisão visual**.
 
@@ -272,6 +270,8 @@ Se uma imagem tem 100x100 pixels e aplica-se a decimação com blocos de `2x2`, 
 
 #### 🔬 Exemplo Visual
 
+![Decimação](Imagens/Decimação.gif)
+
 A imagem acima ilustra a aplicação do algoritmo de decimação. A cada bloco de 2x2 pixels, o pixel superior esquerdo é selecionado e alocado no centro do bloco correspondente na nova imagem, enquanto os outros três pixels são descartados. Esse processo é repetido para todos os blocos, resultando em uma versão reduzida da imagem original.
 
 #### 🎯 Vantagens e Desvantagens
@@ -284,13 +284,11 @@ A imagem acima ilustra a aplicação do algoritmo de decimação. A cada bloco d
 
 ---
 
-## 🟦 Média de Blocos (Block Averaging / Downsampling with Averaging)
-
-![Média de Blocos](Imagens/Média%20de%20Blocos.gif)
+### 🟦 Média de Blocos (Block Averaging / Downsampling with Averaging)
 
 A **Média de Blocos** é uma técnica de redução de imagens digitais que visa diminuir o tamanho da imagem de forma uniforme, calculando a média dos pixels em blocos. É um método simples e eficaz para criar uma versão menor da imagem mantendo a suavidade visual.
 
-⚙️ **Como Funciona**  
+#### ⚙️ **Como Funciona**  
 **Princípio Básico:** Cada bloco de n pixels da imagem original é substituído por um único valor que representa a média de intensidade ou cor de todos os pixels do bloco.
 
 **Processo Passo a Passo:**
@@ -308,16 +306,18 @@ A **Média de Blocos** é uma técnica de redução de imagens digitais que visa
 \text{Nova Dimensão} = \frac{\text{Linhas Originais}}{n} , \frac{\text{Colunas Originais}}{n}
 \]
 
-📌 **Exemplo Prático**  
+#### 📌 **Exemplo Prático**  
 Se uma imagem tem 100x100 pixels e se aplica blocos de `2x2` para redução:  
 
 👉 A nova imagem terá 50x50 pixels.
 
 #### 🔬 Exemplo Visual
 
+![Média de Blocos](Imagens/Média%20de%20Blocos.gif)
+
 A imagem acima ilustra a aplicação do algoritmo de Média de Blocos. A cada bloco de 2x2 pixels, é calculada a média dos valores de intensidade ou cor, e esse valor é alocado no centro do bloco correspondente na nova imagem reduzida. Esse processo é repetido para todos os blocos, resultando em uma versão menor da imagem original, mantendo a suavidade visual.
 
-🎯 **Vantagens e Desvantagens**  
+#### 🎯 **Vantagens e Desvantagens**  
 
 | Categoria | Detalhe |
 |-----------|---------|
@@ -327,9 +327,7 @@ A imagem acima ilustra a aplicação do algoritmo de Média de Blocos. A cada bl
 
 ---
 
-<h2>
- Caminho de Dados
-</h2>
+## Caminho de Dados
 
 ![Caminho de Dados](Imagens/Caminho%20de%20Dados.png)
 
@@ -355,9 +353,9 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-### 🧩 Estrutura do Sistema
+## 🧩 Estrutura do Sistema
 
-#### 🕹️ CONTROL – Unidade de Controle Principal
+### 🕹️ CONTROL – Unidade de Controle Principal
 
 - Gerencia todos os módulos de processamento.  
 - Recebe os sinais `START_REPL`, `START_DEC`, `START_AVG` e `START_NN`.  
@@ -368,7 +366,7 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
   - `160x120` → imagem reduzida (zoom out)  
 - Também é responsável por **sincronizar a atualização da imagem na saída VGA** conforme o algoritmo selecionado.
 
-#### 🎛️ Controle por Botões Físicos (KEYs)
+### 🎛️ Controle por Botões Físicos (KEYs)
 
 O acionamento dos algoritmos é feito por meio dos **botões físicos (KEYs)** presentes na placa DE1-SoC. Cada botão inicia a execução de um módulo de processamento específico:
 
@@ -483,7 +481,7 @@ Quando um novo algoritmo é selecionado, o sistema **restaura automaticamente a 
 
 ---
 
-#### 🔲 Aplicação do algoritmo Nearest Neighbor Interpolation
+### 🔲 Aplicação do algoritmo Nearest Neighbor Interpolation
 
 ![GIF Vizinho Mais Próximo](Imagens/GIF%20Vizinho%20Mais%20Próximo.gif)
 
