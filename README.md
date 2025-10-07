@@ -461,11 +461,23 @@ Quando um novo algoritmo é selecionado, o sistema **restaura automaticamente a 
 
 ![Imagem original](Imagens/Imagem%20Original.jpg)
 
+Esta é a imagem de entrada carregada na memória principal do sistema, exibida com suas propriedades originais antes de qualquer processamento.
+
 ---
 
 ### 🔁 Aplicação do algoritmo Pixel Replication
 
 ![GIF Pixel Replicação](Imagens/GIF%20Replicação%20de%20Pixel.gif)
+
+Após pressionar o botão KEY0, é acionado o módulo de replicação. O sistema lê a imagem original, cada pixel é replicado em blocos (aumentando suas dimensões conforme o fator de zoom) e o resultado é armazenado na memória secundária. A imagem processada é exibida na VGA e o zoom é aplicado direcionando a região ampliada para o canto superior esquerdo da tela.
+
+---
+
+### 🔲 Aplicação do algoritmo Nearest Neighbor Interpolation
+
+![GIF Vizinho Mais Próximo](Imagens/GIF%20Vizinho%20Mais%20Próximo.gif)
+
+Pressionando KEY1, o algoritmo de vizinho mais próximo é ativado. Cada pixel da imagem aumentada recebe o valor do pixel mais próximo da original, ampliando a imagem rapidamente, com a região ampliada exibida na posição superior esquerda, similar ao efeito da replicação mas com pixels ampliados por arredondamento em vez de simples cópia em bloco.
 
 ---
 
@@ -473,17 +485,15 @@ Quando um novo algoritmo é selecionado, o sistema **restaura automaticamente a 
 
 ![GIF Decimação](Imagens/GIF%20Decimação.gif)
 
+Ao pressionar KEY2, inicia-se o processamento de decimação. O algoritmo lê blocos da imagem original, descarta pixels ou calcula médias conforme configurado, diminuindo a resolução da imagem. O resultado, já com o efeito de zoom-out, é centralizado e exibido na tela, dando a sensação de afastamento da cena ou miniaturização.
+
 ---
 
 ### ⚖️ Aplicação do algoritmo Block Averaging
 
 ![GIF Média de Blocos](Imagens/GIF%20Média%20de%20Blocos.gif)
 
----
-
-### 🔲 Aplicação do algoritmo Nearest Neighbor Interpolation
-
-![GIF Vizinho Mais Próximo](Imagens/GIF%20Vizinho%20Mais%20Próximo.gif)
+Ao acionar KEY3, o sistema aplica o algoritmo de média de blocos. Para cada bloco de pixels da imagem original, calcula-se a média dos valores, resultando em uma imagem reduzida (zoom-out), suavizando ruídos e mantendo o centro da imagem como referência principal na saída apresentada.
 
 ---
 
