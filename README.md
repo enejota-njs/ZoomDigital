@@ -121,7 +121,6 @@ O Kit de Desenvolvimento **DE1-SoC** apresenta uma plataforma de hardware robust
 A aproximação digital, também conhecida como zoom in, é o processo de ampliação de uma imagem através do aumento do número de pixels <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[1]</a>. Este processo é fundamental em sistemas de processamento digital de imagens, especialmente em aplicações que requerem análise detalhada de regiões específicas <a href="https://en.wikipedia.org/wiki/Digital_image_processing" target="_blank">[2]</a>. Os algoritmos de aproximação implementados neste projeto focam na eficiência computacional para execução em hardware FPGA, garantindo processamento em tempo real <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[1]</a>.
 </p>
 
-
 ---
 
 ### Vizinho Mais Próximo (Nearest Neighbor Interpolation)
@@ -250,13 +249,42 @@ TUDO SOBRE Decimação / Amostragem
 
 ---
 
-<h3>
- Média de Blocos (Block Averaging / Downsampling with Averaging)
-</h3>
+## 🟦 Média de Blocos (Block Averaging / Downsampling with Averaging)
 
 ![Média de Blocos](Imagens/Média%20de%20Blocos.gif)
 
-TUDO SOBRE Média de Blocos
+A **Média de Blocos** é uma técnica de redução de imagens digitais que visa diminuir o tamanho da imagem de forma uniforme, calculando a média dos pixels em blocos. É um método simples e eficaz para criar uma versão menor da imagem mantendo a suavidade visual.
+
+⚙️ **Como Funciona**  
+**Princípio Básico:** Cada bloco de n pixels da imagem original é substituído por um único valor que representa a média de intensidade ou cor de todos os pixels do bloco.
+
+**Processo Passo a Passo:**
+
+1. Divida a imagem em blocos de tamanho `n x n`.  
+2. Para cada bloco, calcule a média de todos os pixels (valores de cor ou intensidade).  
+3. Substitua um determinado pixel pelo valor médio.  
+4. Repita o processo para todos os blocos da imagem, formando a imagem reduzida.
+
+**Cálculo do Novo Tamanho:**  
+
+- A nova dimensão é dada por:  
+
+\[
+\text{Nova Dimensão} = \frac{\text{Linhas Originais}}{n} , \frac{\text{Colunas Originais}}{n}
+\]
+
+📌 **Exemplo Prático**  
+Se uma imagem tem 100x100 pixels e se aplica blocos de `2x2` para redução:  
+
+👉 A nova imagem terá 50x50 pixels.  
+
+🎯 **Vantagens e Desvantagens**  
+
+| Categoria | Detalhe |
+|-----------|---------|
+| 🟢 **Vantagem** | Redução eficiente de tamanho mantendo suavidade; menos ruído. |
+| 🔴 **Desvantagem** | Perda de detalhes finos; bordas podem ficar borradas. |
+| 🧩 **Melhor Uso** | Ideal para redução de imagens, pré-processamento para compressão ou visualizações rápidas. |
 
 ---
 
