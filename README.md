@@ -153,6 +153,10 @@ Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 2, a nova 
 
 👉 200x200 pixels.
 
+#### 🔬 Exemplo Visual
+
+A imagem acima ilustra a aplicação do algoritmo de vizinho mais próximo. O fator de zoom está indicado no canto superior esquerdo da imagem. Cada pixel da região superior esquerda é duplicado de acordo com o fator de zoom, formando uma imagem ampliada, onde cada novo pixel assume o valor do pixel mais próximo da imagem original.
+
 Para um pixel na posição (150, 120) da imagem ampliada:
 - Coordenada original: (75.0, 60.0)
 - Vizinho mais próximo: (75, 60)
@@ -217,9 +221,7 @@ Se uma imagem tem 100x100 pixels e aplica-se um **fator de zoom** n = 3, a nova 
 
 #### 🔬 Exemplo Visual
 
-| Original | Após Zoom ($n=3$) |
-| :---: | :---: |
-| 🔲 | **Blocos Maiores:** Cada pixel é ampliado n vezes, criando um efeito visual "quadrado" e mais visível. |
+A imagem acima ilustra a aplicação do algoritmo de replicação de pixels. O fator de zoom está indicado no canto superior esquerdo da imagem. Cada pixel do bloco 2x2 superior esquerdo é replicado para formar um novo bloco 2x2, resultando em uma imagem do mesmo tamanho da original, porém com o zoom aplicado.
 
 #### 🎯 Vantagens e Desvantagens
 
@@ -239,13 +241,46 @@ DESCREVER A FUNÇÃO DE REDUÇÃO
 
 ---
 
-<h3>
- Decimação / Amostragem (Nearest Neighbor for Zoom Out)
-</h3>
+## 🟥 Decimação / Amostragem (Nearest Neighbor for Zoom Out)
 
 ![Decimação](Imagens/Decimação.gif)
 
-TUDO SOBRE Decimação / Amostragem
+O **algoritmo de Decimação** é uma técnica simples de **redução de imagens**, utilizada quando o objetivo é diminuir o tamanho da imagem de forma rápida, mesmo que isso implique em perda de detalhes. É eficiente para contextos onde a **velocidade** é mais importante do que a **precisão visual**.
+
+#### ⚙️ Como Funciona
+
+1.  **Princípio Básico:**
+    Reduzir a imagem selecionando apenas alguns pixels representativos e descartando os demais.
+
+2.  **Processo Passo a Passo:**
+    * Divida a imagem em blocos de tamanho `2x2`.  
+    * Para cada bloco, selecione **apenas o pixel superior esquerdo**.  
+    * Alocar esse pixel no centro do bloco correspondente na nova imagem.  
+    * Descartar os outros 3 pixels.  
+
+3.  **Cálculo do Novo Tamanho:**
+
+    A nova dimensão é dada por:
+
+$$\text{Nova Dimensão} = \frac{\text{Linhas Originais}}{2}, \ \frac{\text{Colunas Originais}}{2}$$
+
+#### 📌 Exemplo Prático
+
+Se uma imagem tem 100x100 pixels e aplica-se a decimação com blocos de `2x2`, a nova imagem terá:
+
+👉 50x50 pixels.
+
+#### 🔬 Exemplo Visual
+
+A imagem acima ilustra a aplicação do algoritmo de decimação. A cada bloco de 2x2 pixels, o pixel superior esquerdo é selecionado e alocado no centro do bloco correspondente na nova imagem, enquanto os outros três pixels são descartados. Esse processo é repetido para todos os blocos, resultando em uma versão reduzida da imagem original.
+
+#### 🎯 Vantagens e Desvantagens
+
+| Categoria | Detalhe |
+| :---: | :--- |
+| **🟢 Vantagem** | **Simplicidade e Velocidade:** Implementação direta, ideal para redução rápida de imagens e processamento em tempo real. |
+| **🔴 Desvantagem** | **Perda de Detalhes:** Muitos pixels são descartados, podendo resultar em imagens borradas ou com informações ausentes. |
+| **🧩 Melhor Uso** | Redução rápida de imagens, pré-processamento para compressão ou aplicações onde tamanho e velocidade são mais importantes que fidelidade visual. |
 
 ---
 
@@ -276,7 +311,11 @@ A **Média de Blocos** é uma técnica de redução de imagens digitais que visa
 📌 **Exemplo Prático**  
 Se uma imagem tem 100x100 pixels e se aplica blocos de `2x2` para redução:  
 
-👉 A nova imagem terá 50x50 pixels.  
+👉 A nova imagem terá 50x50 pixels.
+
+#### 🔬 Exemplo Visual
+
+A imagem acima ilustra a aplicação do algoritmo de Média de Blocos. A cada bloco de 2x2 pixels, é calculada a média dos valores de intensidade ou cor, e esse valor é alocado no centro do bloco correspondente na nova imagem reduzida. Esse processo é repetido para todos os blocos, resultando em uma versão menor da imagem original, mantendo a suavidade visual.
 
 🎯 **Vantagens e Desvantagens**  
 
