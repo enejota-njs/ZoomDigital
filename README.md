@@ -80,7 +80,7 @@ Esse ambiente também permite **configurar os pinos**, realizar **testes funcion
 2. Aguarde a compilação completa.  
 3. Verifique se não há erros na **Mensagem de Compilação**.  
 
-## 5. Programar a placa
+### 5. Programar a placa
 
 1. Conecte sua placa DE1-SoC ao computador via cabo USB-Blaster.  
 2. No Quartus, abra o **Programmer**: **Tools → Programmer**.  
@@ -185,7 +185,6 @@ Para um pixel na posição (150, 120) da imagem ampliada:
 - Processamento de imagens em tempo real <a href="https://dcm.ffclrp.usp.br/~murta/PIM/PIM_9_Interpol.pdf" target="_blank">[8]</a>
 - Ampliação de *pixel art* e gráficos de jogos retrô <a href="https://www.tutorialspoint.com/dip/zooming_methods.htm" target="_blank">[4]</a>
 - Aplicações onde a **velocidade** é mais importante que a **qualidade visual** <a href="https://dcm.ffclrp.usp.br/~murta/PIM/PIM_9_Interpol.pdf" target="_blank">[8]</a>
-
 
 ---
 
