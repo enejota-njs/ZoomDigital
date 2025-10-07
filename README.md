@@ -474,17 +474,24 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-<h2>
- Conclusão
-</h2>
+## 📘 Conclusão
 
-DESCREVER A CONCLUSÃO
+## ✅ Conclusão
+
+O projeto de **Zoom Digital em FPGA** demonstrou com sucesso a implementação de algoritmos de **ampliação e redução de imagens** em tempo real, totalmente executados no hardware da placa DE1-SoC. A partir dos testes realizados, foi possível observar que:
+
+- O **Pixel Replication** proporciona uma ampliação rápida, preservando os valores originais, porém com efeito pixelizado perceptível.  
+- O **Nearest Neighbor** mantém bordas nítidas e é eficiente em termos de processamento, sendo ideal para aplicações que priorizam velocidade.  
+- A **Decimação** permite redução eficiente do tamanho da imagem, mas implica em perda de detalhes finos.  
+- A **Média de Blocos** reduz ruídos e suaviza transições, gerando imagens menores com melhor aparência visual, embora com ligeira perda de nitidez.
+
+O sistema desenvolvido mostrou-se **robusto e autônomo**, utilizando apenas a FPGA e a memória da placa, sem depender de processadores externos. Os resultados confirmam que cada algoritmo possui características específicas de desempenho e qualidade visual, permitindo selecionar o método mais adequado conforme a aplicação desejada.
+
+Em suma, o projeto valida a **viabilidade do processamento de imagens em tempo real em FPGA**, combinando eficiência, flexibilidade e autonomia, servindo como uma base sólida para futuras aplicações em sistemas embarcados e processamento gráfico direto no hardware.
 
 ---
 
-<h2>
- Contribuidores
-</h2>
+## 🖥️ Contribuidores
 
 [<img src="https://github.com/FelipeBastosz.png" width="80" height="80">](https://github.com/FelipeBastosz)   [<img src="https://github.com/limajonatas.png" width="80" height="80">](https://github.com/limajonatas)   [<img src="https://github.com/enejota-njs.png" width="80" height="80">](https://github.com/enejota-njs) 
 
