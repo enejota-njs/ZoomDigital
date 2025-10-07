@@ -233,11 +233,9 @@ A imagem acima ilustra a aplicação do algoritmo de replicação de pixels. O f
 
 ---
 
-<h3>
- Redução (Zoom Out)
-</h3>
+### Redução (Zoom Out)
 
-DESCREVER A FUNÇÃO DE REDUÇÃO
+A redução digital, também conhecida como zoom out, é o processo de diminuição do tamanho de uma imagem por meio da redução do número de pixels exibidos. Esse procedimento tem como principal objetivo representar a mesma informação visual de forma mais compacta, mantendo a coerência estrutural da imagem original.
 
 ---
 
@@ -360,12 +358,27 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 #### 🕹️ CONTROL – Unidade de Controle Principal
 
 - Gerencia todos os módulos de processamento.  
-- Recebe os sinais `START REPL`, `START DEC`, `START AVG` e `START NN`.  
-- Garante que apenas **um algoritmo** rode por vez.  
-- Controla o fluxo de dados entre **memória primária**, **memória secundária** e **VGA**.  
+- Recebe os sinais `START_REPL`, `START_DEC`, `START_AVG` e `START_NN`.  
+- Garante que apenas **um algoritmo** seja executado por vez, evitando conflitos entre módulos.  
+- Controla o fluxo de dados entre a **memória primária**, a **memória secundária** e o módulo **VGA**, coordenando as leituras e escritas durante o processamento.  
 - Define o **modo de exibição**:  
-  - `320x240` (imagem original)  
-  - `160x120` (imagem reduzida)
+  - `320x240` → imagem original ou ampliada (zoom in)  
+  - `160x120` → imagem reduzida (zoom out)  
+- Também é responsável por **sincronizar a atualização da imagem na saída VGA** conforme o algoritmo selecionado.
+
+#### 🎛️ Controle por Botões Físicos (KEYs)
+
+O acionamento dos algoritmos é feito por meio dos **botões físicos (KEYs)** presentes na placa DE1-SoC. Cada botão inicia a execução de um módulo de processamento específico:
+
+| Botão | Função | Algoritmo Ativado |
+| :---: | :---: | :--- |
+| **KEY0** | 🔁 | **Replicação de Pixel (Pixel Replication)** |
+| **KEY1** | 🔲 | **Vizinho Mais Próximo (Nearest Neighbor)** |
+| **KEY2** | 🔻 | **Decimação (Pixel Decimation)** |
+| **KEY3** | ⚖️ | **Média de Blocos (Block Averaging)** |
+
+Ao pressionar um dos botões, o sistema envia o sinal correspondente de `START`, ativando o módulo de processamento apropriado.  
+Quando um novo algoritmo é selecionado, o sistema **restaura automaticamente a imagem original** antes de aplicar o próximo processamento, garantindo que cada resultado seja independente e livre de interferências de execuções anteriores.
 
 ---
 
@@ -474,8 +487,6 @@ Cada operação é iniciada por um sinal de **start** específico e processada c
 
 ---
 
-## 📘 Conclusão
-
 ## ✅ Conclusão
 
 O projeto de **Zoom Digital em FPGA** demonstrou com sucesso a implementação de algoritmos de **ampliação e redução de imagens** em tempo real, totalmente executados no hardware da placa DE1-SoC. A partir dos testes realizados, foi possível observar que:
@@ -493,7 +504,7 @@ Em suma, o projeto valida a **viabilidade do processamento de imagens em tempo r
 
 ## 🖥️ Contribuidores
 
-[<img src="https://github.com/FelipeBastosz.png" width="80" height="80">](https://github.com/FelipeBastosz)   [<img src="https://github.com/limajonatas.png" width="80" height="80">](https://github.com/limajonatas)   [<img src="https://github.com/enejota-njs.png" width="80" height="80">](https://github.com/enejota-njs) 
+[<img src="https://github.com/FelipeBastosz.png" width="80" height="80">](https://github.com/FelipeBastosz)     [<img src="https://github.com/limajonatas.png" width="80" height="80">](https://github.com/limajonatas)     [<img src="https://github.com/enejota-njs.png" width="80" height="80">](https://github.com/enejota-njs) 
 
 ---
 
@@ -514,6 +525,5 @@ Em suma, o projeto valida a **viabilidade do processamento de imagens em tempo r
 **[7]** **Centeno, M.** *Processamento digital de imagens - Interpolação*. UFPR. Disponível em: <a href="https://docs.ufpr.br/~centeno/m_pdi/pdf/jaulapdi05.pdf" target="_blank">https://docs.ufpr.br/~centeno/m_pdi/pdf/jaulapdi05.pdf</a>
 
 **[8]** **Nearest Neighbour Interpolation - Image Processing** - Giassa. Disponível em: <a href="https://www.giassa.net/?page_id=207" target="_blank">https://www.giassa.net/?page_id=207</a>
-
 
 * **Conceitos de Zooming e Reamostragem:** [Tutorialspoint - Zooming Methods](https://www.tutorialspoint.com/dip/zooming_methods.htm)
