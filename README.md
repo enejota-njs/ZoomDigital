@@ -46,9 +46,49 @@ Esse ambiente também permite **configurar os pinos**, realizar **testes funcion
 
 ---
 
-## Guia de Instalação e Configuração
+## 📦 Guia de Instalação e Uso do Quartus com Projeto do GitHub
 
-DESCREVER O GUIA DE INSTALAÇÃO E CONFIGURAÇÃO
+### 1. Baixar e instalar o Quartus
+
+1. Acesse o site oficial da Intel FPGA: [https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/download.html](https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/download.html)  
+2. Escolha a versão **Quartus Prime Lite 23.1** (Lite é gratuita).  
+3. Faça o download do instalador compatível com seu sistema operacional (Windows ou Linux).  
+4. Execute o instalador e siga os passos:  
+   - Aceite o contrato de licença.  
+   - Escolha o caminho de instalação.  
+   - Marque os pacotes que deseja instalar (Quartus, ModelSim, Programador USB-Blaster, etc.).  
+6. Finalize a instalação e abra o **Quartus Prime**.
+
+### 2. Baixar o projeto do GitHub
+
+1. Acesse o repositório no GitHub.  
+2. Clique no botão **Code → Download ZIP**.  
+3. Salve o arquivo `.zip` em uma pasta de sua preferência.  
+4. Extraia o conteúdo do arquivo `.zip` (clicar com o botão direito → Extrair aqui ou usar um descompactador).
+
+### 3. Abrir o projeto no Quartus
+
+1. Abra o Quartus Prime.  
+2. Clique em **File → Open Project…**  
+3. Navegue até a pasta descompactada do projeto.  
+4. Selecione o arquivo de projeto do Quartus (`.qpf`) e clique em **Open**.  
+5. Certifique-se de que todos os arquivos do projeto aparecem na **Project Navigator**.
+
+### 4. Compilar o projeto
+
+1. No Quartus, clique em **Processing → Start Compilation** (ou pressione **Ctrl+L**).  
+2. Aguarde a compilação completa.  
+3. Verifique se não há erros na **Mensagem de Compilação**.  
+
+## 5. Programar a placa
+
+1. Conecte sua placa DE1-SoC ao computador via cabo USB-Blaster.  
+2. No Quartus, abra o **Programmer**: **Tools → Programmer**.  
+3. Clique em **Hardware Setup** e selecione o seu **USB-Blaster**.  
+4. Clique em **Add File** e selecione o arquivo `.sof` gerado na compilação.  
+5. Certifique-se de que a opção **Program/Configure** esteja marcada.  
+6. Clique em **Start** para enviar o projeto para a placa.  
+7. Aguarde a mensagem de **Success**, indicando que a programação foi concluída.
 
 ---
 
