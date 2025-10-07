@@ -1,4 +1,6 @@
-# Zoom Digital: Redimensionamento de Imagens com FPGA em Verilog
+<h1 align="center"> 
+ Zoom Digital: Redimensionamento de Imagens com FPGA em Verilog
+</h1>
 
 ---
 
@@ -7,7 +9,7 @@
 O projeto tem como objetivo criar um **módulo embarcado** para **redimensionar imagens em tempo real**, rodando **inteiramente em FPGA**.  
 Ele funciona como um **co-processador gráfico** capaz de fazer **zoom (aproximação)** e **redução** direto no hardware, simulando uma interpolação visual simples.  
 
-Todo o controle é feito pelos **botões e chaves da placa**, e a imagem processada aparece em um **monitor VGA**, sem depender de processadores externos — ou seja, o sistema é **totalmente autônomo**.  
+Todo o controle é feito pelos **botões da placa**, e a imagem processada aparece em um **monitor VGA**, sem depender de processadores externos — ou seja, o sistema é **totalmente autônomo**.  
 
 ---
 
