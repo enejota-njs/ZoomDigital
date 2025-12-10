@@ -1,0 +1,18 @@
+module decoder (
+	input [31:0] instruction,
+	output wire start_repl,        // Sinal de start para replicação de pixels
+   output wire start_dec,         // Sinal de start para decimação
+   output wire start_avg,         // Sinal de start para média de blocos
+   output wire start_nn           // Sinal de start para vizinho mais próximo   
+	):
+	
+	assign OPCODE = instruction[31:29];
+	assign address = instruction[28:12];
+	assign data = instruction[11:4];
+	assign flag_error = instruction[3];
+	assign flag_start = instruction[2];
+	assign flag_done = instruction[1]:
+	
+	
+	
+endmodule
