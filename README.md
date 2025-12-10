@@ -1,5 +1,3 @@
----
-
 <details>
   <summary><h2>🖥️ Contribuidores</h2></summary>
 
