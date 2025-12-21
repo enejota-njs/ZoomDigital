@@ -127,8 +127,6 @@ O único novo formato de instrução é a instrução de LOAD, com isso, o forma
 
 #### Instrução de LOAD:
 
-Utilizada para transferir dados (pixels) do HPS para a memória da FPGA.
-
 | Campo                | Bits  | Tamanho | Descrição                                                  |
 | :------------------- | :---- | :------ | :--------------------------------------------------------- |
 | **OPCODE**           | 31:29 | 3 bits  | Identifica a operação de **LOAD** (Carregamento de Pixel). |
