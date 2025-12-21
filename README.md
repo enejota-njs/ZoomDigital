@@ -247,6 +247,7 @@ Diante dos resultados obtidos, conclui-se que o projeto atendeu plenamente aos o
   <summary><h2>🧠 Repositório da fase 1 e 2</h2></summary>
 
 Fase 1: Disponível em: <a href="https://github.com/enejota-njs/ZoomDigital_Fase_1" target="_blank">https://github.com/enejota-njs/ZoomDigital_Fase_1</a>
+
 Fase 2: Disponível em: <a href="https://github.com/enejota-njs/ZoomDigital_Fase_2" target="_blank">https://github.com/enejota-njs/ZoomDigital_Fase_2</a>
 
 </details>
